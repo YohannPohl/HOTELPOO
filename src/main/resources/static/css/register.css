@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+:root {
+    --verde-color: #426B1F;
+    --verdeclaro-color: rgba(66, 107, 31, 0.72);
+}
+
+body{
+    margin: 10px 300px;
+    background-color: #fcfcfc;
+}
+
+* {
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+body{
+    margin: 10px 300px;
+    background-color: #fcfcfc;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: var(--verde-color) solid 0.1rem;
+}
+nav .sitename {
+    color: var(--verde-color);
+}
+
+
+
+.container-login{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction:column;
+    border-radius: 10px;
+    max-width:300px;
+    margin: 100px auto;
+    height: 27rem;
+    width: 100%;
+    background-color:var(--verdeclaro-color);
+}
+
+.container-login form{
+    justify-items:center;
+}
+
+.container-login p{
+    font-size:0.5rem;
+}
+
+.entrar{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+input{
+    background-color:#fcfcfc;
+    padding: 5px;
+    border-radius:10px;
+    border: white 1px solid;
+}
+
+.criar{
+    background-color: var(--verde-color);
+    color: white;
+    border: var(--verde-color) 1px solid;
+    
+}
+.criar:hover{
+    box-shadow: inset 0 0 0 4px white;
+}
+.ja{
+    background-color: var(--verde-color);
+    color: white;
+    padding: 5px;
+    border-radius:10px;
+    border:var(--verde-color) 1px solid;
+}
+.ja:hover{
+    box-shadow: inset 0 0 0 4px white;
+}

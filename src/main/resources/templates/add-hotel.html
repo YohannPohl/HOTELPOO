@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Hotel</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+
+
+<h1>Adicionar Novo Hotel</h1>
+
+<form th:action="@{/hotel/add}" th:object="${hotel}" method="post">
+    <label for="nome">Nome do Hotel:</label>
+    <input type="text" id="nome" th:field="*{nome}" required><br>
+
+    <label for="descricao">Descrição:</label>
+    <input type="text" id="descricao" th:field="*{descricao}" required><br>
+
+    <label for="preco">Preço (por noite):</label>
+    <input type="number" id="preco" th:field="*{preco}" required><br>
+
+    <label for="imagem">Imagem (URL):</label>
+    <input type="text" id="imagem" th:field="*{imagem}" required><br>
+
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" th:field="*{endereco}" required><br> <!-- Novo campo -->
+
+    <button type="submit">Adicionar Hotel</button>
+</form>
+
+<a href="/">Voltar</a>
+</body>
+</html>

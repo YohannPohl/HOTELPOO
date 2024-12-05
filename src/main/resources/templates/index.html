@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Neighborhood Hotels</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/" style="text-decoration: none;">
+            <h1 class="sitename">Neighborhood Hotels</h1>
+        </a>
+        <h5 class="localizacao">Localização
+            <div class="local">Joinville e Região</div>
+        </h5>
+
+        <div sec:authorize="isAuthenticated()">
+            Olá, <span sec:authentication="name"></span>! |
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sair"/>
+            </form>
+        </div>
+
+
+        <div sec:authorize="!isAuthenticated()">
+            <a href="/login" class="login-button" style="text-decoration: none; color: white;">Fazer Login</a>
+        </div>
+    </nav>
+</header>
+
+<div class="real-local">
+    <h2>Localização</h2>
+    <h5>Pirabeiraba / Distrito Industrial</h5>
+</div>
+
+<h1 class="semideia">Bem-vindo ao Neighborhood Hotels!</h1>
+<hr>
+
+<main>
+    <article>
+        <section>
+            <div class="hotel-card" th:each="hotel : ${hoteis}">
+                <div class="hotel-image">
+                    <img th:src="@{'/img/' + ${hotel.imagem}}" alt="Imagem do Hotel" th:onerror="|this.src='/img/default.jpg';|" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="hotel-info">
+                    <!-- Tornando o nome do hotel e a descrição clicáveis -->
+                    <div class="hotel-name-description">
+                        <a th:href="@{/hotel/{id}(id=${hotel.id})}">
+                            <h3 class="texto" th:text="${hotel.nome}"></h3>
+                            <p class="descricao" th:text="${hotel.descricao}"></p>
+                        </a>
+                    </div>
+
+                    <div class="hotel-price-button">
+                        <p class="dinheiro" th:text="|R$ ${hotel.preco} / Noite|"></p>
+                        <a th:href="@{/hotel/{id}(id=${hotel.id})}">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+</main>
+
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

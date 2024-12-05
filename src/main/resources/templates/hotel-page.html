@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Hotel</title>
+    <link rel="stylesheet" href="/css/hotel-page.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="/" style="text-decoration: none;">
+            <h1 class="sitename">Neighborhood Hotels</h1>
+        </a>
+        <h5 class="localizacao">Localização
+            <div class="local">Joinville e Região</div>
+        </h5>
+
+        <div sec:authorize="isAuthenticated()">
+            Olá, <span sec:authentication="name"></span>!
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sair"/>
+            </form>
+        </div>
+
+
+        <div sec:authorize="!isAuthenticated()">
+            <a href="/login" class="login-button" style="text-decoration: none; color: white;">Fazer Login</a>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <h1 class="title" th:text="${hotel.nome}"></h1>
+    <hr class="divider">
+
+    <div class="content">
+        <!-- Imagem e informações principais -->
+        <div class="hotel-details">
+            <div class="hotel-img">
+                <img th:src="@{'/img/' + ${hotel.imagem}}" alt="Imagem do Hotel" th:onerror="|this.src='/img/default.jpg';|" />
+            </div>
+            <div class="hotel-info">
+                <h3 th:text="${hotel.nome}"></h3>
+                <p class="price">R$ <span th:text="${hotel.preco}"></span> / Noite</p>
+                <p class="address" th:text="${hotel.endereco}"></p>
+            </div>
+        </div>
+
+        <!-- Descrição e formulário -->
+        <div class="reservation-form">
+            <p class="description" th:text="${hotel.descricao}"></p>
+
+            <form th:action="@{/hotel/{hotelId}/reservar(hotelId=${hotel.id})}" method="get">
+                <div class="form-group">
+                    <label for="checkin">Check-in:</label>
+                    <input type="date" id="checkin" name="checkin" required />
+                </div>
+                <div class="form-group">
+                    <label for="checkout">Check-out:</label>
+                    <input type="date" id="checkout" name="checkout" required />
+                </div>
+                <button type="submit" class="btn-res">Ir para Pagamento</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

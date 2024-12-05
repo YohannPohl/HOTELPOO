@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="/css/pagamento.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="/" style="text-decoration: none;">
+            <h1 class="sitename">Neighborhood Hotels</h1>
+        </a>
+        <h5 class="localizacao">Localização
+            <div class="local">Joinville e Região</div>
+        </h5>
+
+        <div sec:authorize="isAuthenticated()">
+            Olá, <span sec:authentication="name"></span>! |
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sair"/>
+            </form>
+        </div>
+
+
+        <div sec:authorize="!isAuthenticated()">
+            <a href="/login" class="login-button" style="text-decoration: none; color: white;">Fazer Login</a>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <h1 class="title">Pagamento</h1>
+    <hr>
+
+    <div class="hotel-summary">
+        <h2>Resumo da Reserva</h2>
+        <p><strong>Hotel:</strong> <span th:text="${hotel.nome}"></span></p>
+        <p><strong>Total de dias:</strong> <span th:text="${dias}"></span></p>
+        <p><strong>Preço total:</strong> R$ <span th:text="${totalPrice}"></span></p>
+    </div>
+
+    <div class="payment-form">
+        <h2>Informações de Pagamento</h2>
+        <form th:action="@{/hotel/{id}/obrigado(id=${hotel.id})}" method="get">
+            <div class="form-group">
+                <label for="cardholder">Nome no Cartão</label>
+                <input type="text" id="cardholder" name="cardholder" placeholder="Ex: João Silva" required>
+            </div>
+            <div class="form-group">
+                <label for="cardnumber">Número do Cartão</label>
+                <input type="text" id="cardnumber" name="cardnumber" placeholder="0000 0000 0000 0000" maxlength="16" required>
+            </div>
+            <div class="form-group">
+                <label for="expiration">Validade</label>
+                <input type="month" id="expiration" name="expiration" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="Ex: 123" maxlength="3" required>
+            </div>
+            <button type="submit" class="btn-pay">Confirmar Pagamento</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

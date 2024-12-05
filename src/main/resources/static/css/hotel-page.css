@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+:root {
+    --verde-color: #426B1F;
+    --verdeclaro-color: rgba(66, 107, 31, 0.72);
+    --cinza-fundo: #f9f9f9;
+    --cinza-borda: #ddd;
+    --text-color: #333;
+}
+
+/* Header */
+
+* {
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--verde-color) solid 0.1rem;
+}
+
+nav .sitename {
+    color: var(--verde-color);
+}
+
+.login-button {
+    justify-content: center;
+    background-color: var(--verde-color);
+    padding: 10px 15px 10px 15px;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+/* */
+
+body {
+    margin: 10px 300px;
+    font-family: Arial, sans-serif;
+    background-color: var(--cinza-fundo);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 2.5rem;
+    color: var(--verde-color);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.divider {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid var(--cinza-borda);
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.hotel-details {
+    flex: 1 1 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hotel-details .hotel-img img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-info h3 {
+    font-size: 1.8rem;
+    margin: 10px 0;
+    color: var(--verde-color);
+}
+
+.hotel-info .price {
+    font-size: 1.2rem;
+    color: var(--verde-color);
+    margin: 5px 0;
+}
+
+.hotel-info .address {
+    color: #777;
+    font-size: 1rem;
+}
+
+.reservation-form {
+    flex: 1 1 48%;
+    background: var(--cinza-fundo);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-form .description {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.reservation-form .form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--cinza-borda);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: var(--verde-color);
+    outline: none;
+}
+
+button.btn-res {
+    display: inline-block;
+    background: var(--verde-color);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button.btn-res:hover {
+    background: #36581A;
+}

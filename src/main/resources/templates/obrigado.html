@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/obrigado.css">
+    <title>Neighborhood Hotels</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a th:href="@{/}" style="text-decoration: none">
+                <h1 class="sitename">Neighborhood Hotels</h1>
+            </a>
+        </nav>
+    </header>
+    <br>
+    <div class="content">
+        <div class="check">
+            <img th:src="@{/img/check.png}" alt="Reserva Concluída">
+        </div>
+
+        <h2 class="obg">
+            Obrigado pela reserva
+        </h2>
+
+        <div class="btn-tk">
+            <button th:onclick="|window.location='@{/}'|">Voltar ao Início</button>
+            <button th:onclick="|window.location='@{/reservas}'|">Minhas Reservas</button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+/* Header */
+
+* {
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--verde-color) solid 0.1rem;
+}
+
+nav .sitename {
+    color: var(--verde-color);
+}
+
+.login-button {
+    justify-content: center;
+    background-color: var(--verde-color);
+    padding: 10px 15px 10px 15px;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+/* */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1.title {
+    font-size: 2rem;
+    color: #426B1F;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hotel-summary, .payment-form {
+    margin-bottom: 20px;
+}
+
+.hotel-summary h2, .payment-form h2 {
+    font-size: 1.5rem;
+    color: #426B1F;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #426B1F;
+    outline: none;
+}
+
+button.btn-pay {
+    display: block;
+    width: 100%;
+    background: #426B1F;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button.btn-pay:hover {
+    background: #36581A;
+}
+
+hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
